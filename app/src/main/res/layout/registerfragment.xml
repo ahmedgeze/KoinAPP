@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#123a30"
+    tools:context="com.example.ahmetserdargeze.koinplusapp.Fragments.RegisterFragment"
+
+    >
+    <ImageView
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_margin="25px"
+        android:layout_gravity="center"
+        android:src="@drawable/dolar"
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:background="@android:color/transparent"
+        android:textColor="#a4de9a"
+        android:text="KoinPlusAPP"
+        android:fontFamily="@font/bitter_bold"/>
+
+
+    <EditText
+        android:id="@+id/rf_username_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/bitter_bold"
+        android:alpha="0.70"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorHint="#a4de9a" />
+
+    <EditText
+        android:id="@+id/rf_email_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/bitter_bold"
+        android:alpha="0.70"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColorHint="#a4de9a" />
+
+
+    <EditText
+        android:id="@+id/rf_password_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="#a4de9a"
+        android:ems="10"
+        android:fontFamily="@font/bitter_bold"
+        android:alpha="0.70"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/rf_confirmpassword_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="#a4de9a"
+        android:ems="10"
+        android:fontFamily="@font/bitter_bold"
+        android:alpha="0.70"
+        android:inputType="textPassword"
+        android:hint="Confirm Password"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/rf_register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/bitter_bold"
+        android:alpha="1"
+        android:textColor="#a4de9a"
+        android:textSize="40px"
+
+        android:layout_gravity="center"
+        android:text="Register"
+        />
+
+</LinearLayout>

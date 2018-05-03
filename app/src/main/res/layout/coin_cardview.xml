@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:id="@+id/parentLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="#1e2a2d"
+        android:orientation="vertical"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="22">
+
+            <ImageView
+                android:id="@+id/coin_pic"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/if_bitoin_btc_coin_crypto_2844381"
+
+                />
+
+            <TextView
+                android:id="@+id/coin_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="2.2"
+                android:background="#1e2a2d"
+                android:text="BTC"
+
+                android:textColor="#fdfde0" />
+
+            <TextView
+                android:id="@+id/coin_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="8"
+                android:background="#1e2a2d"
+                android:text="15000$"
+                android:textColor="#fdfde0" />
+
+
+            <TextView
+                android:id="@+id/volume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="9"
+                android:background="#1e2a2d"
+                android:text="1.000.000.000"
+
+                android:textColor="#fdfde0" />
+
+
+            <TextView
+                android:id="@+id/change"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:background="#1e2a2d"
+                android:text="-%25.4"
+
+                android:textColor="#fdfde0" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rv_child_items"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@color/textcolor"
+            android:orientation="horizontal"
+            android:weightSum="120">
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center"-->
+            <!--android:weightSum="80"-->
+            <!--&gt;-->
+            <ImageView
+                android:id="@+id/add_fav"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginTop="2.5dp"
+                android:layout_weight="30"
+                android:src="@drawable/star_fill_gl" />
+
+            <ImageView
+                android:id="@+id/go_to_chart"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginTop="2.5dp"
+                android:layout_weight="30"
+                android:src="@drawable/charticon" />
+
+            <ImageView
+                android:id="@+id/exchange_rate"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginTop="2.5dp"
+                android:layout_weight="30"
+                android:src="@drawable/exchange_rate" />
+
+            <ImageView
+                android:id="@+id/alarm"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginTop="2.5dp"
+                android:layout_weight="30"
+                android:src="@drawable/alarm_new" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!--</LinearLayout>-->
+
+
+</android.support.v7.widget.CardView>
+
+
+
+

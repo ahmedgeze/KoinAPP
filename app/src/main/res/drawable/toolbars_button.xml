@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="0dp"
+    android:shape="ring"
+    android:thicknessRatio="2.0"
+    android:useLevel="false"
+    >
+
+    <solid android:color="@color/toolbar_button_bg"/>
+    <stroke
+        android:width="0dp"
+        android:color="#123a30"/>
+
+
+    <padding
+        android:left="7dp"
+        android:top="7dp"
+        android:right="7dp"
+        android:bottom="7dp" />
+</shape>

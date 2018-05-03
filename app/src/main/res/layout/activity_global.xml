@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    tools:context=".ActivityGlobal">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.5"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/global_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/market_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/marketlogo"
+                        android:background="@drawable/img"
+                        android:layout_gravity="center"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="MARKET"
+                        android:textSize="13sp"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/account_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+                    <ImageView
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/userprofile_t"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="PROFILE"
+                        android:textSize="13sp"/>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/trade_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+                    <ImageView
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/trade"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="TRADE"
+                        android:textSize="13sp"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settings_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/settings"
+                        android:background="@drawable/img"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="SETTINGS"
+                        android:textSize="13sp"/>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

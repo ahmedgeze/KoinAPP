@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textcolor">#a4de9a</color>
+    <color name="toolbar_bg">#32ff7e</color>
+    <color name="toolbar_button_bg">#1e90ff</color>
+    <color name="topBarSelected">#fd9644</color>
+    <color name="graphicBackground">#0594d9</color>
+    <color name="graphicLine">#66a548</color>
+    <color name="layout_bg">#ff5500</color>
+    <color name="dialog_bg">#00b0ff</color>
+    <color name="dialog_button">#ff5500</color>
+
+</resources>
