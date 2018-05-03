@@ -14,14 +14,34 @@ public  class Global_state_var {
 
     public static String graphicKoinName="BTC";
 
-    public static int threadCount=0;
+    public static int threadCount_USDT =0;
 
-    public static int getThreadCount() {
-        return threadCount;
+    public static int threadCount_BTC =0;
+
+    public static int threadCount_ETH =0;
+
+    public static int getThreadCount_BTC() {
+        return threadCount_BTC;
+    }
+
+    public static void setThreadCount_BTC() {
+        threadCount_BTC++;
+    }
+
+    public static int getThreadCount_ETH() {
+        return threadCount_ETH;
+    }
+
+    public static void setThreadCount_ETH() {
+        threadCount_ETH++;
+    }
+
+    public static int getThreadCount_USDT() {
+        return threadCount_USDT;
     }
 
     public static void setThreadCount() {
-        threadCount++;
+        threadCount_USDT++;
     }
 
     public static String getGraphicKoinName() {

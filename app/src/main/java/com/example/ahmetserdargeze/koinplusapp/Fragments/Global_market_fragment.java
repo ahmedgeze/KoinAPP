@@ -38,6 +38,8 @@ import com.example.ahmetserdargeze.koinplusapp.retrofit.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -75,7 +77,8 @@ public class Global_market_fragment extends android.app.Fragment {
 
     Database db;
 
-    Thread thread;
+    Timer timer;
+    TimerTask timerTask_usdt,timerTask_BTC,timerTask_ETH;
 
 
 
@@ -189,7 +192,8 @@ public class Global_market_fragment extends android.app.Fragment {
                 changeTopColor(0);
                 switch (Global_state_var.getFav_state()){
                     case 0:
-                        getCoin("USDT");
+//                        getCoin("USDT");
+                        getCoinWithThread();
                         break;
                     case 1:
                         setFavRv(0+"","USDT");
@@ -216,7 +220,8 @@ public class Global_market_fragment extends android.app.Fragment {
                 changeTopColor(1);
                 switch (Global_state_var.getFav_state()){
                     case 0:
-                        getCoin("BTC");
+//                        getCoin("BTC");
+                        getCoinWithThread();
                         break;
                     case 1:
                         setFavRv(1+"","BTC");
@@ -236,7 +241,8 @@ public class Global_market_fragment extends android.app.Fragment {
                 changeTopColor(2);
                 switch (Global_state_var.getFav_state()){
                     case 0:
-                        getCoin("ETH");
+//                        getCoin("ETH");
+                        getCoinWithThread();
                         break;
                     case 1:
                         setFavRv(2+"","ETH");
@@ -420,6 +426,83 @@ public class Global_market_fragment extends android.app.Fragment {
 
         return result;
     }
+
+    public ArrayList<Rv_object_coin> getCoinWithThread(){
+
+    timerTask_usdt=new TimerTask() {
+        @Override
+        public void run() {
+            getCoin("USDT");
+        }
+    };
+
+    timerTask_ETH=new TimerTask() {
+        @Override
+        public void run() {
+            getCoin("ETH");
+        }
+    };
+
+    timerTask_BTC=new TimerTask() {
+        @Override
+        public void run() {
+            getCoin("BTC");
+        }
+    };
+
+    if (Global_state_var.getCoin()==0){
+        if (Global_state_var.getThreadCount_BTC()!=0 ) {
+            stop();
+            System.out.println(Global_state_var.getThreadCount_BTC());
+
+        }
+
+            Global_state_var.setThreadCount_BTC();
+            start(timerTask_usdt);
+
+    }
+
+        if (Global_state_var.getCoin()==1){
+            if (Global_state_var.getThreadCount_BTC()!=0) {
+                stop();
+            }
+            Global_state_var.setThreadCount_BTC();
+
+            start(timerTask_BTC);
+
+
+        }
+
+        if (Global_state_var.getCoin()==2){
+            if (Global_state_var.getThreadCount_BTC()!=0) {
+                stop();
+            }
+            Global_state_var.setThreadCount_BTC();
+
+            start(timerTask_ETH);
+
+
+        }
+
+
+
+        return result;
+    }
+
+    public void start(TimerTask timerTask) {
+        if(timer != null) {
+            return;
+        }
+        timer = new Timer();
+        timer.scheduleAtFixedRate(timerTask, 0, 2000);
+    }
+
+    public void stop() {
+        timer.cancel();
+        timer = null;
+    }
+
+
 
     public ArrayList<SingleCoinResult> setFavRv(String kur,String kur_name){
         favcoin_list_a=setFavList(kur);//0 1 2
