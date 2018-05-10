@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ActivityGlobal">
+        <activity android:name=".LoginorRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +25,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ActivityGlobal"></activity>
 
         <service android:name=".AlarmService"
             android:exported="false">

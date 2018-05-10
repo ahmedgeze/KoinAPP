@@ -32,7 +32,7 @@
 
 
     <EditText
-        android:id="@+id/userEditText"
+        android:id="@+id/lf_username_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -46,7 +46,7 @@
         android:textColorHint="#a4de9a" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/lf_password_lf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

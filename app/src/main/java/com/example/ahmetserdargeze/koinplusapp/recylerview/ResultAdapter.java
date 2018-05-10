@@ -100,6 +100,7 @@ public class ResultAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
                 db.deleteAllRecords();
                 db.closeCon();
 
+
 //
 
             }
@@ -109,8 +110,8 @@ public class ResultAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
         holder.go_to_chart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global_state_var.setGraphicKoinName(holder.coin_name.getText().toString());
-
+//                Global_state_var.setGraphicKoinName(holder.coin_name.getText().toString());
+//
 //                Log.e("gotochart","ALLLLLLLLLLLLLLLARM");
 //                Database db=new Database(holder.go_to_chart.getContext());
 //                db.openCon();
@@ -144,9 +145,14 @@ public class ResultAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
                     db.addRecord(holder.coin_name.getText().toString(),kur+"");
                     holder.add_fav.setImageResource(R.drawable.star_fill);
 
-                }else {
+                }else if(db.controlWithName(s,kur+"")>0){
                     db.deleteSingleRecords(s);
                     holder.add_fav.setImageResource(R.drawable.star_fill_gl);
+
+                }
+                else {
+                    Log.i("db error","hata");
+
                 }
 
 

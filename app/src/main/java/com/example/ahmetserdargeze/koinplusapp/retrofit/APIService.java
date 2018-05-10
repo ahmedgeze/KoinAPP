@@ -1,5 +1,6 @@
 package com.example.ahmetserdargeze.koinplusapp.retrofit;
 
+import com.example.ahmetserdargeze.koinplusapp.models.LoginPojo;
 import com.example.ahmetserdargeze.koinplusapp.models.Real_graphic_data;
 import com.example.ahmetserdargeze.koinplusapp.models.RegisterationPojo;
 import com.example.ahmetserdargeze.koinplusapp.models.Result;
@@ -25,6 +26,15 @@ public interface APIService {
             @Field("email")    String email,
             @Field("password") String password,
             @Field("confirm_password") String confirm_password);
+
+    @POST("login/")
+    @FormUrlEncoded
+    Call<LoginPojo> login(
+            @Field("username") String username,
+            @Field("password") String password);
+
+
+
 
 
     @GET("returnTop25")

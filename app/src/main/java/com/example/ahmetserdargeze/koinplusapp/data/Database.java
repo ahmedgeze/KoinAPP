@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,10 @@ import java.util.List;
  */
 
 public class Database {
-    private static final String DATABASE_NAME = "KoinPlusApp";
+
+    private static final String DATABASE_NAME = "KoinPlusApp_1";
     private static final String DATABASE_TABLO = "FavCoin";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     //Veritabanını kullanacak sınıfları tutan Context nesnesi
     private final Context context;
@@ -32,16 +34,19 @@ public class Database {
     public static final String KEY_KUR_ID = "kur_id";
 
     public Database(Context c) {
+
         this.context = c;
+
     }
 
 
 
     public Database openCon() {
 
+
+
         dbHelper = new DatabaseHelper(context);
         database = dbHelper.getWritableDatabase();
-
         return this;
 
     }
@@ -53,9 +58,9 @@ public class Database {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        public static final String createAddFavTable= "create table "+  DATABASE_TABLO+"("+KEY_ROW_ID+" INTEGER PRIMARY KEY AUTOINCREMENT ,"+
-                                                                        KEY_KOIN_NAME+" TEXT NOT NULL, "+
-                                                                        KEY_KUR_ID+"TEXT NOT NULL);" ;
+        public static final String createAddFavTable= "create table "+  DATABASE_TABLO+"("+KEY_ROW_ID+"  INTEGER PRIMARY KEY AUTOINCREMENT ,"+
+                                                                        KEY_KOIN_NAME+"  TEXT NOT NULL, "+
+                                                                        KEY_KUR_ID+"  TEXT NOT NULL);" ;
 
         public DatabaseHelper(Context contextim) {
             super(contextim, DATABASE_NAME, null, DATABASE_VERSION);
@@ -76,6 +81,10 @@ public class Database {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             // TODO Auto-generated method stub
+
+//            if (newVersion > oldVersion) {
+//                db.execSQL("ALTER TABLE FavCoin ADD COLUMN kur_id INTEGER DEFAULT 0"); // You can add TEXT Field
+//            }
 
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLO);
             onCreate(db);
@@ -129,7 +138,7 @@ public class Database {
                 Database.KEY_KUR_ID+
                 " FROM  "+Database.DATABASE_TABLO+
                 " WHERE "+
-                Database.KEY_KUR_ID+"=?";
+                Database.KEY_KUR_ID+" =?";
 
 
         Cursor cursor=db.rawQuery(selectQuery,new String[]{kur_id});
@@ -212,7 +221,7 @@ public class Database {
                 Database.KEY_KUR_ID+
                 " FROM  "+Database.DATABASE_TABLO+
                 " WHERE "+
-                Database.KEY_KOIN_NAME+"=? and "+Database.KEY_KUR_ID+" =?";
+                Database.KEY_KOIN_NAME+" =?"+" and "+Database.KEY_KUR_ID+" =?";
 
         int iCount=0;
         Cursor cursor=db.rawQuery(selectQuery,new String[]{koinname,kur_id});

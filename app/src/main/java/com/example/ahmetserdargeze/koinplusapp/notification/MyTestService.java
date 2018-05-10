@@ -9,6 +9,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -34,6 +35,9 @@ public class MyTestService extends IntentService {
     APIService download;
     SingleCoinResult singleCoinResult=new SingleCoinResult();
     SingleCoinBody singleCoinBody=new SingleCoinBody();
+    String kur,koin;
+    Double alarm_price;
+    String[] parts;
     // Must create a default constructor
     public MyTestService() {
         // Used to name the worker thread, important only for debugging.
@@ -48,7 +52,7 @@ public class MyTestService extends IntentService {
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Log.i("start","trihger");
+        Log.i("start","trigger");
         return super.onStartCommand(intent, flags, startId);
 
     }
@@ -57,9 +61,16 @@ public class MyTestService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.i("RETR","TRİGGER");
         download= ApiUtils.getAPIService();
+        Bundle extras=intent.getExtras();
+        kur=extras.getString("kur");
+        koin=extras.getString("koin");
+        alarm_price=extras.getDouble("price");
 
 
-        download.getSingleCoin("USDT","BTC").enqueue(new Callback<SingleCoinBody>() {
+
+
+
+        download.getSingleCoin(kur,koin).enqueue(new Callback<SingleCoinBody>() {
             @Override
             public void onResponse(Call<SingleCoinBody> call, Response<SingleCoinBody> response) {
                 singleCoinBody=response.body();
@@ -100,17 +111,21 @@ public class MyTestService extends IntentService {
 
 // The id of the channel.
                 String CHANNEL_ID = "my_channel_01";
-
-// Create a notification and set the notification channel.
-                Notification notification = new Notification.Builder(getApplicationContext(),CHANNEL_ID)
-                        .setContentTitle(singleCoinResult.getKoinIdKoinName())
-                        .setContentText(singleCoinResult.getLast())
-                        .setSmallIcon(R.drawable.alarm_new)
-                        .setChannelId(CHANNEL_ID)
-                        .build();
+                if(Double.parseDouble(singleCoinResult.getLast())>alarm_price){
+                    // Create a notification and set the notification channel.
+                    Notification notification = new Notification.Builder(getApplicationContext(),CHANNEL_ID)
+                            .setContentTitle(singleCoinResult.getKoinIdKoinName())
+                            .setContentText(singleCoinResult.getLast()+" Fiyat Sınırını Aştı")
+                            .setSmallIcon(R.drawable.alarm_new)
+                            .setChannelId(CHANNEL_ID)
+                            .build();
 
 // Issue the notification.
-                mNotificationManager.notify(3, notification);
+                    mNotificationManager.notify(3, notification);
+
+                }
+
+
 
 
 

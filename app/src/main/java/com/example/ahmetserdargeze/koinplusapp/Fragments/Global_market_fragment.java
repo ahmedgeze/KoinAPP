@@ -121,8 +121,13 @@ public class Global_market_fragment extends android.app.Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getCoin("USDT");
+//  public void  start(Double alarm_price,String kur,String koin) kullanım şekli
+        start(0.348010,"USDT","ADA");
+//        start(1472.901,"USDT","BCC");
 
-        start();
+        startWithMultible();
+
+
 
 
 
@@ -266,6 +271,8 @@ public class Global_market_fragment extends android.app.Fragment {
                         starChange(0);
                         changeTopColor(0);
                         stariv.invalidate();
+                        if (Global_state_var.getThreadCount_BTC()!=0)
+                            stop();
                         setFavRv(0+"","USDT");
 //                        getCoinLater(0+"");
                         break;
@@ -455,6 +462,7 @@ public class Global_market_fragment extends android.app.Fragment {
             stop();
             System.out.println(Global_state_var.getThreadCount_BTC());
 
+
         }
 
             Global_state_var.setThreadCount_BTC();
@@ -489,12 +497,12 @@ public class Global_market_fragment extends android.app.Fragment {
         return result;
     }
 
-    public void start(TimerTask timerTask) {
+    public  void start(TimerTask timerTask) {
         if(timer != null) {
             return;
         }
         timer = new Timer();
-        timer.scheduleAtFixedRate(timerTask, 0, 2000);
+        timer.scheduleAtFixedRate(timerTask, 0, 8000);
     }
 
     public void stop() {
@@ -567,14 +575,40 @@ public class Global_market_fragment extends android.app.Fragment {
 
     }
 
-    public void  start(){
+    public void  start(Double alarm_price,String kur,String koin){
         AlarmManager manager=(AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
         Intent myIntent=new Intent(getContext(),MyTestService.class);
+//        myIntent.putExtra("price","1471.011111");
+        myIntent.putExtra("price",alarm_price);
+        myIntent.putExtra("kur",kur);
+        myIntent.putExtra("koin",koin);
+
         PendingIntent pendingIntent=PendingIntent.getService(getContext(),0,myIntent,0);
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime(),500,pendingIntent);
 
     }
 
+    public void  startWithMultible(){
+        AlarmManager manager=(AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+        AlarmManager manager1=(AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+        Intent  myIntent=new Intent(getContext(),MyTestService.class);
+        Intent myIntent1=new Intent(getContext(),MyTestService.class);
+
+//        myIntent.putExtra("price","1471.011111");
+        myIntent.putExtra("price",0.367700);
+        myIntent.putExtra("kur","USDT");
+        myIntent.putExtra("koin","ADA");
+
+        myIntent.putExtra("price",1472.910);
+        myIntent.putExtra("kur","USDT");
+        myIntent.putExtra("koin","BCC");
+
+        PendingIntent pendingIntent=PendingIntent.getService(getContext(),0,myIntent,0);
+        PendingIntent pendingIntent1=PendingIntent.getService(getContext(),0,myIntent1,0);
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime(),500,pendingIntent);
+        manager1.setInexactRepeating(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime(),500,pendingIntent1);
+
+    }
 
 
 
